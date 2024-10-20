@@ -5,9 +5,15 @@
 ## Features
 
 - Traverse directories to find `README` files.
-- Check for `README` files tracked in Git repositories.
 - Platform agnostic and easy to use.
 - Built using TypeScript for type safety and code clarity.
+- Sync README's with Bluescrolls
+
+## Get Started
+```bash
+npm install -g bluescrolls-cli
+bluescrolls ./
+```
 
 ## Installation
 
@@ -17,6 +23,7 @@ You can install the tool globally from npm to make it available as a command:
 
 ```bash
 npm install -g bluescrolls-cli
+```
 
 ## Local Installation 
 Alternatively, you can clone the repository and run it locally using 'ts-node':
@@ -27,6 +34,12 @@ npm install
 npm run start ./
 ```
 
+You can build and execute like this 
+```
+npm run build && ./dist/bluescrolls.js ./
+```
+
+
 ## Usage
 After installing bluescrolls-cli globally, you can run it from anywhere using the command:
 ```
@@ -35,6 +48,7 @@ bluescrolls ./path/to/directory
 
 ### Arguments
 `<directory>`: The path to the directory where the tool should start looking for README files. If no directory is provided, it defaults to the current directory (`./`).
+`<excludedPaths>`: The paths the tool will ignore e.g. `['node_modules', 'dist', '.git', 'build', 'out', 'target', 'bin', 'packages']`
 
 ## Example
 To search for `README` files in the current directory and check for tracked `README` files in the Git repository:
@@ -71,4 +85,13 @@ npm run start ./path/to/directory
 To publish the package to npm, first make sure your code is committed, then run:
 ```
 npm publish
+```
+
+## Issues
+If you found the global bin directory (for example, /usr/local/bin or /opt/homebrew/bin), ensure that it is in your PATH.
+
+If you had issues with ts-node before, you might need to install it again:
+```
+env: ts-node: No such file or directory
+npm install -g ts-node
 ```
